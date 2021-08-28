@@ -201,6 +201,7 @@ d3.csv(window.CrossFilter.config.dataUrl,  function (data) {
     		addYLabel(chart, "Weighthed rating out of 5");
   	});	
 
+	update();
 	
 	dc.renderAll();
 	
