@@ -1,0 +1,23 @@
+#index h2{
+color: black; font-family: 'Helvetica Neue', sans-serif; font-size: 46px; font-weight: 100; line-height: 20px; letter-spacing: 1px; padding: 0 0 20px; border-bottom: double #555;
+}
+
+
+
+#food-chart .x.axis text {
+		transform: rotate(-30deg);
+	    text-anchor: end !important;
+		fill:black;
+		
+		
+	}
+
+#rating-chart g.row text {fill: #476b6b;}
+
+
+
+
+#map {
+  width: 800px;
+  height: 380px;
+}
