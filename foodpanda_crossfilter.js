@@ -5,7 +5,10 @@ var restTable = dc.dataTable('#rest-table');
 var restCount = dc.dataCount('.dc-data-count');
 var markers = [];
 
+var allDim;
 
+var latDimension;
+var lngDimension;
 
 
 var restMarkers = new L.FeatureGroup();
@@ -31,7 +34,25 @@ d3.csv(window.CrossFilter.config.dataUrl,  function (data) {
 	
 	
 	var all = ndx.groupAll();
+	
+	latDimension = ndx.dimension(function(p) { return p.latitude; });
+  	lngDimension = ndx.dimension(function(p) { return p.longitude; });
+  	map.on("moveend", function(e){
+    	var bounds = map.getBounds()
+	var northEast = bounds.getNorthEast();
+	var southWest = bounds.getSouthWest();
 
+    	// NOTE: need to be careful with the dateline here
+    	lngDimension.filterRange([southWest.lng, northEast.lng]);
+    	latDimension.filterRange([southWest.lat, northEast.lat]);
+
+    	// NOTE: may want to debounce here, perhaps on requestAnimationFrame
+
+	setTimeout(function() {
+  	dc.renderAll()
+		}, 700);
+    
+	});
 	
 
 	var allDim = ndx.dimension(function(d) {return d;});
@@ -301,6 +322,10 @@ filter_reset()
     	
 	
 })
+
+function map_reset(){
+map.setView([3.140853, 101.693207], 11);
+}
 
 
 
