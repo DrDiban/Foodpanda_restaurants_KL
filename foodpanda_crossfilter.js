@@ -171,7 +171,7 @@ d3.csv(window.CrossFilter.config.dataUrl,  function (data) {
     		restMarkers.addLayer(marker);
   		});
   		map.addLayer(restMarkers);
-  		map.fitBounds(restMarkers.getBounds());
+  		
 
 		});
 		
