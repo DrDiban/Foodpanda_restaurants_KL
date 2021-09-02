@@ -13,7 +13,7 @@ var lngDimension;
 
 var restMarkers = new L.FeatureGroup();
 var ndx;
-var map = L.map('map',{preferCanvas:true}).setView([3.140853, 101.693207], 13);
+var map = L.map('map',{preferCanvas:true}).setView([3.140853, 101.693207], 11);
 
 var osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
